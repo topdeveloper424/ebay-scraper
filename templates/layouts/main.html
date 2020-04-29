@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<!-- BEGIN : Head-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="website for Cannabis Business">
+    <meta name="keywords" content="cannabis, web app">
+    <meta name="author" content="top developer">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    {% load static %}
+    <link href="{% static 'img/logo.png' %}" rel="icon">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- BEGIN VENDOR CSS-->
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/feather/style.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/simple-line-icons/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/perfect-scrollbar.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/prism.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/chartist.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/sweetalert2.min.css' %}">
+
+    <!-- END VENDOR CSS-->
+    {% block style %}
+    {% endblock %}
+
+    <!-- BEGIN APEX CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+    <!-- END APEX CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <!-- END Page Level CSS-->
+    <style>
+        th,td{
+            text-align: center;
+        }
+        .dropdown-toggle::after{
+            content: none;
+        }
+        .aster{
+            color: red;
+        }
+
+        #dropdownBasic1{
+            border: 2px solid white;
+            border-radius: 6px;
+            background-color: black;
+            padding: 5px 10px 5px 10px;
+        }
+
+    </style>
+
+
+</head>
+<!-- END : Head-->
+{% load tags %}
+<!-- BEGIN : Body-->
+<body data-col="2-columns" class=" 2-columns layout-white">
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+<div class="wrapper nav-collapsed menu-collapsed">
+
+    {% url 'home' as home %}
+
+    <!-- main menu-->
+    <!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
+    <div data-active-color="white" data-background-color="black" data-image="{% static 'img/sidebar-bg/01.jpg' %}" class="app-sidebar">
+        <!-- main menu header-->
+        <!-- Sidebar Header starts-->
+        <div class="sidebar-header" style="background-color: #3b3bbb">
+            <div class="logo clearfix"><a href="{{ home }}" class="logo-text float-left">
+                    <div class="logo-img"><img src="{% static 'img/logo.png' %}"/></div><span class="text align-middle" style="font-size:20px;">SPORT CARD</span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="toggle-icon ft-toggle-right"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-x"></i></a></div>
+        </div>
+        <!-- Sidebar Header Ends-->
+        <!-- / main menu header-->
+        <!-- main menu content-->
+
+
+        <div class="sidebar-content" style="background-color: #3b3bbb">
+            <div class="nav-container">
+                <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
+                    <li class="nav-item {% active request home %}"><a href="{{ home }}"><i class="ft-home"></i><span data-i18n="" class="menu-title">Home</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- main menu content-->
+        <!-- main menu footer-->
+        <!-- include includes/menu-footer-->
+        <!-- main menu footer-->
+    </div>
+    <!-- / main menu-->
+
+    <!-- Navbar (Header) Starts-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded header-navbar" style="background-color: white;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-left"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><span class="d-lg-none navbar-right navbar-collapse-toggle"><a aria-controls="navbarSupportedContent" href="javascript:;" class="open-navbar-container black"><i class="ft-more-vertical"></i></a></span>
+            </div>
+            <div class="navbar-container">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="dropdown nav-item mt-2">
+                            <a id="dropdownBasic2" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+                                <i class="ft-bell font-medium-3 blue-grey darken-4"></i>
+                                <span class="notification badge badge-pill badge-danger" id="notiNumber" style="display: none">0</span>
+                                <p class="d-none">Notifications</p></a>
+                            <div class="notification-dropdown dropdown-menu dropdown-menu-right">
+                                <div class="noti-list">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle" style="display: inline-flex; color: black;"><p class="mt-1 mr-3"><b>Alex</b></p>
+                                <img class="media-object d-flex mr-3 round-media" src="{% static 'img/default-avatar.png' %}" alt="Generic placeholder image" style="width: 50px;height: 50px;border-radius: 50%;border: 3px solid #3eaef3;">
+                            </a>
+                            <div aria-labelledby="dropdownBasic3" class="dropdown-menu text-left dropdown-menu-right">
+                                <a href="#" class="dropdown-item py-1"><i class="ft-edit mr-2"></i><span>User Settings</span></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="ft-power mr-2"></i><span>Logout</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar (Header) Ends-->
+
+    <div class="main-panel">
+        <!-- BEGIN : Main Content-->
+        <div class="main-content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <!-- END : End Main Content-->
+
+        <!-- BEGIN : Footer-->
+        <footer class="footer footer-static footer-light">
+            <p class="clearfix text-muted text-sm-center px-2"><span> 2020 <a href="https://www.freelancer.com/u/ASirbescu" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">Sirbescu Alex. Members </a>, All rights reserved. </span></p>
+        </footer>
+        <!-- End : Footer-->
+
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+<!-- BEGIN VENDOR JS-->
+<script src="{% static 'vendors/js/core/jquery-3.2.1.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/core/popper.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/perfect-scrollbar.jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/prism.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/jquery.matchHeight-min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/screenfull.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/pace/pace.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'vendors/js/sweetalert2.min.js' %}" type="text/javascript"></script>
+<!-- BEGIN VENDOR JS-->
+<!-- BEGIN PAGE VENDOR JS-->
+<!-- END PAGE VENDOR JS-->
+{% block script %}
+{% endblock %}
+<script>
+</script>
+
+<!-- BEGIN APEX JS-->
+<script src="{% static 'js/app-sidebar.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/notification-sidebar.js' %}" type="text/javascript"></script>
+<!-- END APEX JS-->
+</body>
+<!-- END : Body-->
+</html>
